@@ -52,11 +52,17 @@
                       </v-list-item-icon>
                       <v-list-item-title>Login/Register</v-list-item-title>
                   </v-list-item>
-                  <v-list-item :to="'/user/'+user.user.id" v-else>
+                  <v-list-item :to="'/users/'+user.user.id" v-if="isLogged">
                       <v-list-item-icon>
                           <v-icon>mdi-account</v-icon>
                       </v-list-item-icon>
                       <v-list-item-title>Profile</v-list-item-title>
+                  </v-list-item>
+                  <v-list-item to="/posts/new" v-if="isLogged">
+                      <v-list-item-icon>
+                          <v-icon>mdi-pencil-plus</v-icon>
+                      </v-list-item-icon>
+                      <v-list-item-title>Create a post</v-list-item-title>
                   </v-list-item>
 
               </v-list-item-group>

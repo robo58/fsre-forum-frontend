@@ -7,6 +7,7 @@ import Theme from "../views/Theme";
 import Register from "../views/Register";
 import Profile from "../views/Profile";
 import Post from "../views/Post";
+import NewPost from "../views/NewPost";
 
 Vue.use(VueRouter)
 
@@ -28,8 +29,12 @@ const routes = [
     },
     {
         path: '/users/:user_id',
-        name: 'UserProfile',
-        component: Profile
+        name: 'Profile',
+        component: Profile,
+        props:true,
+        meta:{
+            auth: true
+        }
     },
     {
         path: '/categories/:id',
@@ -47,6 +52,12 @@ const routes = [
         path: '/categories/:category_id/themes/:theme_id/posts/:post_id',
         name: 'Posts',
         component: Post,
+        props: true,
+    },
+    {
+        path: '/posts/new',
+        name: 'NewPost',
+        component: NewPost,
         props: true,
     },
 ]

@@ -2,18 +2,23 @@
     <v-container fluid>
         <v-card class="py-4">
             <v-row>
-                <v-col sm="4" cols="10" offset="2" offset-sm="0">
-                    <v-card-title>
+                <v-col sm="4" cols="12" offset-sm="0" class="text-center justify-center">
+                    <v-card-title class="text-center">
                         {{ theme.name }}
                     </v-card-title>
                 </v-col>
-                <v-col sm="6" cols="10" offset="1" offset-sm="0">
+                <v-col sm="5" cols="10" offset="1" offset-sm="0">
                     <v-text-field
                         label="Search posts..."
                         append-icon="mdi-magnify"
                         v-model="searchPosts"
                         single-line
                     ></v-text-field>
+                </v-col>
+                <v-col sm="2" cols="8" offset-sm="1" offset-md="0">
+                    <v-btn color="primary" to="/posts/new" class="mx-4">
+                        Create new post
+                    </v-btn>
                 </v-col>
             </v-row>
             <v-card-actions>
