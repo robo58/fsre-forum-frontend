@@ -47,5 +47,11 @@ export default new Vuex.Store({
 
     getters : {
         isLogged: state => !!state.user,
+        isAdmin: state => {
+            return state.user.user.roles.filter(x=>x.name === 'admin').length === 1;
+        },
+        isModerator: state => {
+            return state.user.user.roles.filter(x => x.name === 'moderator').length === 1;
+        },
     }
 })

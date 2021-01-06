@@ -8,6 +8,8 @@ import Register from "../views/Register";
 import Profile from "../views/Profile";
 import Post from "../views/Post";
 import NewPost from "../views/NewPost";
+import Dashboard from "../views/Dashboard";
+import EditPost from "../views/EditPost";
 
 Vue.use(VueRouter)
 
@@ -57,9 +59,32 @@ const routes = [
     {
         path: '/posts/new',
         name: 'NewPost',
+        meta:{
+            auth: true
+        },
         component: NewPost,
         props: true,
     },
+    {
+        path: '/posts/:post_id/edit',
+        name: 'EditPost',
+        meta:{
+            auth: true
+        },
+        component: EditPost,
+        props: true,
+    },
+    {
+        path: '/admin/dashboard',
+        name: 'AdminDash',
+        meta:{
+            auth: true,
+            isAdmin: true,
+        },
+        component: Dashboard,
+        props: true,
+    },
+
 ]
 
 const router = new VueRouter({
@@ -75,6 +100,7 @@ router.beforeEach((to, from, next) => {
         next('/login')
         return
     }
+
     next()
 })
 
